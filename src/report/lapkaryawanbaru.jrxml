@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3acaf27e-b7e7-4be2-90c4-cfb7eb59d0c5">
+	<property name="ireport.zoom" value="1.1000000000000025"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="today" class="java.lang.String"/>
+	<parameter name="jml" class="java.lang.String"/>
+	<parameter name="cbg" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="kota" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="alamat" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="telp" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="lwg" class="java.lang.String"/>
+	<parameter name="lvl" class="java.lang.String"/>
+	<parameter name="pg" class="java.lang.String"/>
+	<parameter name="logo" class="java.lang.Object"/>
+	<queryString>
+		<![CDATA[SELECT
+     krywnbaru.`id_k` AS krywnbaru_id_k,
+     krywnbaru.`nm_k` AS krywnbaru_nm_k,
+     krywnbaru.`tgl_trn` AS krywnbaru_tgl_trn,
+     krywnbaru.`tgl_m` AS krywnbaru_tgl_m,
+     krywnbaru.`nik` AS krywnbaru_nik
+FROM
+     `krywnbaru` krywnbaru,
+     `lowongan` lowongan,
+`calonkywn` calonkywn
+WHERE
+     lowongan.id_low = '$P!{lwg}' and lowongan.id_low=calonkywn.id_low and krywnbaru.nik=calonkywn.nik]]>
+	</queryString>
+	<field name="krywnbaru_id_k" class="java.lang.String"/>
+	<field name="krywnbaru_nm_k" class="java.lang.String"/>
+	<field name="krywnbaru_tgl_trn" class="java.sql.Date"/>
+	<field name="krywnbaru_tgl_m" class="java.sql.Date"/>
+	<field name="krywnbaru_nik" class="java.lang.String"/>
+	<group name="karyawan_id_karyawan">
+		<groupExpression><![CDATA[]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="172" splitType="Stretch">
+			<staticText>
+				<reportElement x="153" y="118" width="257" height="20" uuid="dae31064-26b2-45d4-9a1e-f2af66c10415"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Laporan Karyawan Baru]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="101" width="554" height="1" forecolor="#B28D3F" uuid="ee97328e-defc-4d19-a98d-a0919bc60783"/>
+				<graphicElement>
+					<pen lineWidth="5.0"/>
+				</graphicElement>
+			</line>
+			<image scaleImage="RealSize" hAlign="Center" vAlign="Middle" isUsingCache="true">
+				<reportElement x="0" y="0" width="125" height="99" uuid="c12af20f-b888-44fd-9aa3-2250e890e6a6"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="109" y="0" width="441" height="41" uuid="be335514-8f80-4ff2-9a37-9e711005435a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="26" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Geum Nails "+$P{cbg}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="109" y="41" width="441" height="20" uuid="4afdc3ea-eb0d-4ac1-90ce-e02dd69b147b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{alamat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="109" y="60" width="441" height="20" uuid="cfac3481-e8c2-49e1-81a9-ae1690c54812"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Telp/Whatsapp: "+$P{telp}+" Instagram: @geumnails"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="153" y="138" width="257" height="20" uuid="577ef01c-68c7-4fdb-8894-9f522920368b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ID Lowongan: "+$P{lwg}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="109" y="79" width="443" height="20" uuid="1f9be222-d56d-48b7-8899-29794d498b59"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Email:  geumnails@gmail.com"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="bc467508-ed0a-4863-9406-9628710a37eb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID Karyawan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="226" y="0" width="100" height="20" uuid="021ad5bd-d868-4198-a7b3-b3d59e609bb1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Karyawan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="343" y="0" width="100" height="20" uuid="31e3b952-9dc5-40fd-ba29-4721f3f64e02"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanggal Training]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="22" width="554" height="1" forecolor="#B28D3F" uuid="f222db2e-9c08-41e6-b4f5-400f650b9281"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="454" y="0" width="100" height="20" uuid="50a0f5e9-aa9e-478f-a0d9-d6b14b3d7005"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanggal Kerja]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="109" y="0" width="100" height="20" uuid="d5387c23-f830-4f8e-9fbc-89766783e5c8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NIK]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="3" width="100" height="20" uuid="d71621ff-7c65-4268-8d3f-712ec0a51890"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{krywnbaru_id_k}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="226" y="3" width="100" height="20" uuid="f98d03e8-3bdd-4dd3-afd8-8577a0e666c5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{krywnbaru_nm_k}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MM-yyyy">
+				<reportElement x="343" y="3" width="100" height="20" uuid="54cf0ba5-ef59-4af3-bf72-1127f2abbb66"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{krywnbaru_tgl_trn}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MM-yyyy">
+				<reportElement x="454" y="4" width="100" height="20" uuid="e4585953-0c6c-4f54-9246-566c0545ad7a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{krywnbaru_tgl_m}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="109" y="3" width="100" height="20" uuid="a32d8e5b-188f-4dae-b6c4-d087f1ec6468"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{krywnbaru_nik}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="32" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="1" width="554" height="1" forecolor="#B28D3F" uuid="f5be5147-2759-4881-9ed0-d4f313c28617"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="0" y="3" width="251" height="20" uuid="9942e56d-de32-4d5a-8ae6-aa23cdbc65ad"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Total Karyawan Baru: "+$P{jml}+" Orang"]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="357" y="67" width="197" height="20" uuid="cc03b8fd-b9ec-4e15-8b5f-96ccb94192ba"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pg}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="357" y="0" width="197" height="20" uuid="dd8575e6-a2b6-4c43-8bd9-4284ed4ea72e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{kota}+", "+$P{today}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="233" y="105" width="100" height="20" uuid="9bdc6a79-d649-49f6-9d27-26a32906039e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="357" y="87" width="197" height="20" uuid="361abdc6-9e8e-46e3-91bb-2616edd10a62"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lvl}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
